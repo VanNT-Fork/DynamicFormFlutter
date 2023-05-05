@@ -14,7 +14,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
-  TabController tabController;
+  late TabController tabController;
 
   @override
   void initState() {
@@ -98,7 +98,7 @@ class MyHomePage extends StatelessWidget {
                           label: "first name",
                           hint: "first name",
                           validator: (v) {
-                            if (v.isEmpty) {
+                            if (v?.isEmpty ?? true) {
                               return "err";
                             }
                             return null;
@@ -231,10 +231,10 @@ class SubmitForm extends StatelessWidget {
     final controller = SimpleDynamicForm.of(context);
     return ElevatedButton(
       onPressed: () {
-        print(controller.validate());
-        print(controller.getAllValues());
-        print(controller.getAllValuesByIds());
-        print(controller.getValueById("countries"));
+        print(controller?.validate());
+        print(controller?.getAllValues());
+        print(controller?.getAllValuesByIds());
+        print(controller?.getValueById("countries"));
       },
       child: Text("Validate"),
     );

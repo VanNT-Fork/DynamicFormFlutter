@@ -3,3 +3,5 @@
 /*.patch
 /*.lock
 /.packages
+.dart_tool/
+.fvm/
